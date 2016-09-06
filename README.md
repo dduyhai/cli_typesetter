@@ -9,9 +9,9 @@ command.
 
 ## AUTHOR
 
-Doan Duy Hai
-Email: dduyhai@gmail.com
-Github: https://github.com/dduyhai/cli_typesetter.git
+* Doan Duy Hai
+* Email: dduyhai@gmail.com
+* Github: https://github.com/dduyhai/cli_typesetter.git
 
 ## CHANGELOG
   
