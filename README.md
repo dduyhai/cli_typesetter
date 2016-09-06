@@ -26,7 +26,8 @@ This is testing version that offers a few number of preferences.
   git clone https://github.com/dduyhai/cli_typesetter.git cli_typesetter
   ```
 
-2. Setup 
+2. Setup
+
   a. In macOS
     ```
     cd cli_typesetter
