@@ -19,6 +19,18 @@ command.
 
 This is testing version that offers a few number of preferences.
 
+## INSTALL
+
+1. Clone from github
+  ```
+  git clone https://github.com/dduyhai/cli_typesetter.git cli_typesetter
+  ```
+
+2. Setup 
+  ```
+  cd cli_typesetter
+  python3 setup.py install
+  ```
 ## TODO
 
 Add exception for better experience.
