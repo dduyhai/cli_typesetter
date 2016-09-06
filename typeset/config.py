@@ -77,8 +77,7 @@ class TypesettingConfig:
 
     def get_outputDirectory(self):
         if (self.texEngine == "pdflatex"):
-            outputDirectory = os.path.expanduser(self.pdflatexOption.outputDirectory)
-            outputDirectory = os.path.expandvars(outputDirectory)
+            outputDirectory = self.pdflatexOption.outputDirectory
             return outputDirectory
 
     def get_tex2pdfCommand(self):

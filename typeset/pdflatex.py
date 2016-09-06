@@ -1,3 +1,5 @@
+import os
+
 class PdfLatex:
     def __init__(self):
         self.draftmode = False
@@ -51,7 +53,7 @@ class PdfLatex:
 
     def set_outputDirectory(self, directory):
         if (directory != ""):
-            self.outputDirectory = directory
+            self.outputDirectory = os.path.expandvars(os.path.expanduser(directory))
 
     def set_shellEscape(self, shellEscapeMode):
         localValue = str(shellEscapeMode).lower()

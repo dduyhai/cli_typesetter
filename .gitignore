@@ -1,3 +1,4 @@
 build/
 cmdline_typesetter.egg-info/
 dist/
+__pycache__/

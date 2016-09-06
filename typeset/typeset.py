@@ -7,6 +7,7 @@ import subprocess
 
 from .config import *
 from .manual import *
+
 def typeset_tex_file(configFilename):
     typesettingConfig = TypesettingConfig()
     if (os.path.isfile(configFilename) == True):
@@ -31,23 +32,37 @@ def typeset_with_pdflatex(tex2pdfConfig):
         return
 
     outputDirectory = tex2pdfConfig.get_outputDirectory()
+    print(outputDirectory)
     if (os.path.isdir(outputDirectory) == False):
         os.makedirs(outputDirectory)
 
     pdflatexCommand = tex2pdfConfig.get_tex2pdfCommand()
     subprocess.call(pdflatexCommand, shell = True)
+    return
 
 def generate_default_config(configFilename):
     print("The default typesetting config is written to " + configFilename + ".")
     configFile = open(configFilename, "w")
-    configFile.write("master_file               = your_master_tex_file.tex\n\n")
+    configFile.write("# Template of typesetting config\n")
+
+    configFile.write("\n#Master TeX file\n")
+    configFile.write("master_file               = your_master_tex_file.tex\n")
+
+    configFile.write("\n# TeX2Pdf engine\n")
     configFile.write("tex_engine                = pdflatex\n\n")
+
+    configFile.write("\n# PdfLaTeX options\n")
     configFile.write("pdflatex_draftmode        = no\n")
     configFile.write("pdflatex_file_line_error  = yes\n")
     configFile.write("pdflatex_halt_on_error    = yes\n")
     configFile.write("pdflatex_interaction      = errorstopmode\n")
     configFile.write("pdflatex_output_directory = ./\n")
     configFile.write("pdflatex_shell_escape     = no\n")
+
+    configFile.write("\n# Pdf viewer\n")
+    configFile.write("viewer_mac                = preview\n")
+    configFile.write("viewer_linux              = xdg_open\n")
+
     configFile.close()
 
 def remove_nonessential_files(configFilename):
@@ -82,16 +97,22 @@ def open_pdf_file(configFilename):
     elif (workingPlatform == "Linux"):
         subprocess.call(str(pdfViewer + " " + pdfFilename + " &"), shell = True)
 
+    return
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--clean", nargs='?', type=str, const="typeset.cfg",
+        metavar="typesetting_config_filename",
         help="Clean all nonessential files except the pdf ones")
     parser.add_argument("-d", "--default", nargs='?', type=str, const="typeset.cfg",
+        metavar="typesetting_config_filename",
         help="Generate the default typeset config file")
     parser.add_argument("-m", "--manual", action="store_true", help="Show the manual")
     parser.add_argument("-o", "--open", nargs='?', type=str, const="typeset.cfg",
+        metavar="typesetting_config_filename",
         help="Open the PDF file")
     parser.add_argument("-t", "--typeset", nargs='?', type=str, const="typeset.cfg",
+        metavar="typesetting_config_filename",
         help="Typeset a TeX file")
 
     args = parser.parse_args()
@@ -110,3 +131,5 @@ def main():
 
     if (args.open):
         open_pdf_file(str(args.open).strip())
+
+    return

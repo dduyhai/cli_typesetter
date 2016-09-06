@@ -17,4 +17,15 @@ command.
   
 ### Version 0.1
 
-This is testing version that offers a few number of preferences
+This is testing version that offers a few number of preferences.
+
+## TODO
+
+Add exception for better experience.
+
+## DESIRED FEATURES
+
+1. Add more tex engine such as __xelatex__.
+2. Add bibliography engine such as __bibtex__ and __biber__
+3. Add index engine
+
