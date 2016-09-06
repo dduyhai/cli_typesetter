@@ -27,10 +27,26 @@ This is testing version that offers a few number of preferences.
   ```
 
 2. Setup 
-  ```
-  cd cli_typesetter
-  python3 setup.py install
-  ```
+  a. In macOS
+    ```
+    cd cli_typesetter
+    python3 setup.py install
+    ```
+    Then add the installing directory to `PATH`:
+    ```
+    PATH=PATH:/Library/Frameworks/Python.framework/Versions/3.5/bin
+    ```
+
+  b. In Linux
+    ```
+    cd cli_typesetter
+    python3 setup.py install --user
+    ```
+    Then add the install directory to `PATH`:
+    ```
+    PATH=PATH=${HOME}/.local/bin
+    ```
+
 ## TODO
 
 Add exception for better experience.
